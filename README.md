@@ -24,6 +24,10 @@ configured to mount your home directory into the container.
 The image assumes that account running the continer will have a user and group id of 1000:1000.  This allows the container 
 to save files in your home directory and keep the proper permissions.
 
+##X-Windows
+If the image complains that it cannot connect to your X server, simply run `xhost +` to allow the container to connect 
+to your X server.
+
 #License and Credits
 This project is licensed under the [Apache License Version 2.0, January 2004](http://www.apache.org/licenses/).
 
