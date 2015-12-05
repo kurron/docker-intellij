@@ -21,7 +21,7 @@ configured to mount your home directory into the container.
 #Troubleshooting
 
 ##User Account
-The image assumes that account running the continer will have a user and group id of 1000:1000.  This allows the container 
+The image assumes that the account running the continer will have a user and group id of 1000:1000.  This allows the container 
 to save files in your home directory and keep the proper permissions.
 
 ##X-Windows
