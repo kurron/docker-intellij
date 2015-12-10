@@ -2,7 +2,7 @@ idea:
     build: .
     labels:
         org.kurron.description: "JetBrains IntelliJ IDEA Java IDE"
-        org.kurron.version: "15.0.1"
+        org.kurron.version: "15.0.2"
     container_name: "intellij"
     net: "host"
     volumes:
