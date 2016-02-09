@@ -12,6 +12,4 @@ RUN mkdir -p /opt/ide && \
 
 ENV IDEA_JDK=/usr/lib/jvm/oracle-jdk-8
 
-USER developer:developer
-WORKDIR /home/developer
 ENTRYPOINT ["/opt/ide/bin/idea.sh"]
