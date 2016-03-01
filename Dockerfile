@@ -2,9 +2,9 @@ FROM kurron/docker-jetbrains-base:latest
 
 MAINTAINER Ron Kurr <kurr@kurron.org>
 
-LABEL org.kurron.ide.name="Intellij IDEA" org.kurron.ide.version=15.0.3
+LABEL org.kurron.ide.name="Intellij IDEA" org.kurron.ide.version=15.0.4
 
-ADD https://download.jetbrains.com/idea/ideaIU-15.0.3.tar.gz /tmp/ide.tar.gz
+ADD https://download.jetbrains.com/idea/ideaIU-15.0.4.tar.gz /tmp/ide.tar.gz
 
 RUN mkdir -p /opt/ide && \
     tar zxvf /tmp/ide.tar.gz --strip-components=1 -C /opt/ide && \

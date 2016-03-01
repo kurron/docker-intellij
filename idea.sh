@@ -13,7 +13,7 @@ CMD="docker run \
        --volume /var/run/docker.sock:/var/run/docker.sock \
        --volume $(which docker):/bin/docker \
        --volume /usr/lib/x86_64-linux-gnu/libapparmor.so.1.1.0:/lib/x86_64-linux-gnu/libapparmor.so.1 \
-       kurron/docker-intellij:latest"
+       kurron/docker-intellij:15.0.4"
 
 echo $CMD
 $CMD
