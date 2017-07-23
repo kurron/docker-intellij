@@ -4,19 +4,26 @@
 
 IMAGE=${1:-kurron/docker-intellij:latest}
 
+DOCKER_GROUP_ID=$(cut -d: -f3 < <(getent group docker))
+USER_ID=$(id -u $(whoami))
+GROUP_ID=$(id -g $(whoami))
+
 # Need to give the container access to your windowing system
 xhost +
 
-CMD="docker run --rm \
+CMD="docker run --group-add ${DOCKER_GROUP_ID} \
+                --env HOME=/home/powerless \
+                --env DISPLAY=unix${DISPLAY} \
                 --interactive \
-                --tty \
-                --name intellij \
+                --name IntelliJ \
                 --net "host" \
-                --env DISPLAY=unix$DISPLAY \
-                --user=$(id -u $(whoami)):$(id -g $(whoami)) \
+                --rm \
+                --tty \
+                --user=${USER_ID}:${GROUP_ID} \
+                --volume $HOME:/home/powerless \
                 --volume /tmp/.X11-unix:/tmp/.X11-unix \
-                --volume $HOME:/home/developer \
                 --volume /var/run/docker.sock:/var/run/docker.sock \
+                --workdir /tmp \
                 ${IMAGE}"
 
 echo $CMD
