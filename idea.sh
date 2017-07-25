@@ -11,6 +11,10 @@ GROUP_ID=$(id -g $(whoami))
 # Need to give the container access to your windowing system
 xhost +
 
+PULL="docker pull ${IMAGE}"
+echo ${PULL}
+${PULL}
+
 CMD="docker run --group-add ${DOCKER_GROUP_ID} \
                 --env HOME=/home/powerless \
                 --env DISPLAY=unix${DISPLAY} \
