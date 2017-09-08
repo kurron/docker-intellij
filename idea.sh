@@ -10,6 +10,7 @@ GROUP_ID=$(id -g $(whoami))
 HOME_DIR=$(cut -d: -f6 < <(getent passwd ${USER_ID}))
 
 # Need to give the container access to your windowing system
+DISPLAY=:0
 xhost +
 
 PULL="docker pull ${IMAGE}"
