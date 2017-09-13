@@ -10,14 +10,15 @@ GROUP_ID=$(id -g $(whoami))
 HOME_DIR=$(cut -d: -f6 < <(getent passwd ${USER_ID}))
 
 # Need to give the container access to your windowing system
-DISPLAY=:0
+export DISPLAY=:0
 xhost +
 
 PULL="docker pull ${IMAGE}"
 echo ${PULL}
 ${PULL}
 
-CMD="docker run --group-add ${DOCKER_GROUP_ID} \
+CMD="docker run --detach=true \
+                --group-add ${DOCKER_GROUP_ID} \
                 --env HOME=${HOME} \
                 --env DISPLAY=unix${DISPLAY} \
                 --interactive \
@@ -34,3 +35,11 @@ CMD="docker run --group-add ${DOCKER_GROUP_ID} \
 
 echo $CMD
 $CMD
+
+echo $CMD
+CONTAINER=$($CMD)
+
+# Minor post-configuration
+docker exec --user=root -it $CONTAINER groupadd -g $DOCKER_GROUP_ID docker
+
+docker attach $CONTAINER
