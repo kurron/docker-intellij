@@ -22,6 +22,8 @@ CMD="docker run --group-add ${DOCKER_GROUP_ID} \
                 --tty \
                 --user=${USER_ID}:${GROUP_ID} \
                 --volume ${HOME}:${HOME} \
+                --volume /etc/group:/etc/group:ro \
+                --volume /etc/passwd:/etc/passwd:ro \
                 --volume /tmp/.X11-unix:/tmp/.X11-unix \
                 --volume /var/run/docker.sock:/var/run/docker.sock \
                 --workdir ${HOME} \

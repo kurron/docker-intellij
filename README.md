@@ -1,16 +1,11 @@
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/siWgAciQehZbF4oNcgaM2HS9/kurron/docker-intellij'>
-  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/siWgAciQehZbF4oNcgaM2HS9/kurron/docker-intellij.svg' />
-</a>
-
 # Overview
 This project is a simple Docker image that runs [JetBrains IntelliJ IDE](http://www.jetbrains.com/).
 
 # Prerequisites
 * a working [Docker](http://docker.io) engine
-* a working [Docker Compose](http://docker.io) installation
 
 # Building
-Type `docker-compose build` to build the image.
+Type `./buid.sh` to build the image.
 
 # Installation
 Docker will automatically install the newly built image into the cache.
@@ -18,9 +13,9 @@ Docker will automatically install the newly built image into the cache.
 # Tips and Tricks
 
 ## Launching The Image
+`./test.sh` will launch the image allowing you to begin working on projects.  
 
-`docker-compose up` will launch the image allowing you to begin working on projects. The Docker Compose file is
-configured to mount your home directory into the container.  
+## Desktop Launcher
 
 # Troubleshooting
 
@@ -32,5 +27,5 @@ to your X server.
 This project is licensed under the [Apache License Version 2.0, January 2004](http://www.apache.org/licenses/).
 
 # List of Changes
-
+* upgrade to IDEA 2017.3.4
 * automatically detect and mount the user's home directory
